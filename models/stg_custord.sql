@@ -14,3 +14,5 @@ customer_orders as (
     group by 1
 
 )
+
+select * from customer_orders
