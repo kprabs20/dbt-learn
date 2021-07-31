@@ -1,5 +1,3 @@
-with orders as (
-
     select
         id as order_id,
         user_id as customer_id,
@@ -8,4 +6,3 @@ with orders as (
 
     from demo_db.jaffle_shop.orders
 
-)
