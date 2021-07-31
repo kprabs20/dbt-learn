@@ -1,41 +1,10 @@
 {{config (materialized="table")}}
-with customers as (
 
-    select
-        id as customer_id,
-        first_name,
-        last_name
+with customers as (select * from {{ ref('stg_cust') }}),
 
-    from demo_db.jaffle_shop.customers
+orders as (select * from {{ ref('stg_ord') }}),
 
-),
-
-orders as (
-
-    select
-        id as order_id,
-        user_id as customer_id,
-        order_date,
-        status
-
-    from demo_db.jaffle_shop.orders
-
-),
-
-customer_orders as (
-
-    select
-        customer_id,
-
-        min(order_date) as first_order_date,
-        max(order_date) as most_recent_order_date,
-        count(order_id) as number_of_orders
-
-    from orders
-
-    group by 1
-
-),
+customer_orders as (select * from {{ ref('stg_custord')}}),
 
 
 final as (
