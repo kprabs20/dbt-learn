@@ -1,4 +1,3 @@
-with customers as (
 
     select
         id as customer_id,
@@ -6,5 +5,3 @@ with customers as (
         last_name
 
     from demo_db.jaffle_shop.customers
-
-)
