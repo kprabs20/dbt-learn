@@ -1,8 +1,9 @@
 with customers as (select * from {{ ref('stg_cust') }}),
 
-orders as (select * from {{ ref('stg_ord') }}),
+customer_payment as (select * from {{ ref('fct_cust_pymnt') }}),
 
 customer_orders as (select * from {{ ref('int_custord')}}),
+
 
 
 final as (
@@ -18,6 +19,8 @@ final as (
     from customers
 
     left join customer_orders using (customer_id)
+
+    left join customer_payment using (customer_id,order_id)
 
 )
 
