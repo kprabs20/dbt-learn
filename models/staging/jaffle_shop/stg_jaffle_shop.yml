@@ -1,8 +1,8 @@
 version:2
 
 models:
-    - name: stg_Customers
-        columns
+    - name: stg_cust
+        columns:
             - name: customer_id
               tests:
                 - unique
