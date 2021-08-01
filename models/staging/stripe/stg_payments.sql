@@ -3,4 +3,3 @@ select
       ,sum(amount) 
 from demo_db.stripe.payment 
 group by 1
-;
