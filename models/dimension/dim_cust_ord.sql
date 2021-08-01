@@ -1,5 +1,3 @@
-{{config (materialized="table")}}
-
 with customers as (select * from {{ ref('stg_cust') }}),
 
 orders as (select * from {{ ref('stg_ord') }}),
