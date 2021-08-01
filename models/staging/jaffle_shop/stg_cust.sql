@@ -1,7 +1,6 @@
+select
+     id as customer_id,
+     first_name,
+     last_name
 
-    select
-        id as customer_id,
-        first_name,
-        last_name
-
-    from demo_db.jaffle_shop.customers
+from demo_db.jaffle_shop.customers
