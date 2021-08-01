@@ -1,17 +1,26 @@
 with orders as (select * from {{ ref('stg_ord')}}), 
 payments as (select * from {{ ref('stg_payments')}}),
 
-final_amount as (
+order_payments as (
     select
-        customer_id,
         order_id,
-        sum(amount) as lifetime_value
+        sum(case when status = 'success' then amount end) as amount
+
+    from payments
+    group by 1
+),
+
+final as (
+    select
+        orders.order_id,
+        orders.customer_id,
+        orders.order_date,
+        coalesce(order_payments.amount, 0) as amount
        
     from orders 
 
-    inner join payments using (order_id)
-    group by 1,2
-
+    left join order_payments using (order_id)
+    
 )
 
-select * from final_amount
+select * from final
