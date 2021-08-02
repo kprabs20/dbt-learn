@@ -1,15 +1,11 @@
 version: 2
 
-sources:
-  - name: jaffle_shop
-    description: A replica of the postgres database used to power the jaffle_shop app.
-    tables:
-      - name: stg_cust
-        columns:
-          - name: id
-            description: Primary key of the table
-            tests:
-              - unique
-              - not_null
+models:
+  - name: stg_cust
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
 
       
