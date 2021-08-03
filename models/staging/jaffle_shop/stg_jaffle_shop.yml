@@ -2,8 +2,10 @@ version: 2
 
 models:
   - name: stg_cust
+    description: Unique customer per row
     columns:
       - name: customer_id
+        description: Primary key for stg_cust
         tests:
           - unique
           - not_null
