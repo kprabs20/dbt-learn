@@ -13,8 +13,8 @@ models:
           tests:
             - accepted_values:
                 values: ['returned','completed','shipped','placed','return_pending']   
-  - name: stg_ord, stg_cust
-    columns:
         - name: customer_id
           tests:
-            - relationships      
+            - relationships:
+                to: ref('stg_cust')   
+                field: customer_id  
