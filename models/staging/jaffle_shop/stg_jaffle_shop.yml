@@ -12,4 +12,9 @@ models:
         - name: status
           tests:
             - accepted_values:
-                values: ['returned','completed','shipped','placed','return_pending']         
+                values: ['returned','completed','shipped','placed','return_pending']   
+  - name: stg_ord, stg_cust
+    columns:
+        - name: customer_id
+          tests:
+            - relationships      
