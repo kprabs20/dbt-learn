@@ -4,5 +4,6 @@
         order_date,
         status
 
-    from demo_db.jaffle_shop.orders
+ --   from demo_db.jaffle_shop.orders
+    from {{ source('jaffle_shop','orders') }}
 
