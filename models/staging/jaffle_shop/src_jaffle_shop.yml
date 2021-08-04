@@ -2,17 +2,22 @@ version: 2
 
 sources:
   - name: jaffle_shop
+    description: jaffle_shop customer order details.
     database: DEMO_DB  
     tables:
       - name: customers
+        description: jaffle_shop customers data.
         columns:
           - name: ID
+            description: customer unique ID
             tests: 
               - unique
               - not_null
       - name: orders
+        description: jaffle_shop orders by customers data.
         columns:
           - name: ID
+            Description: Unique order ID.
             tests:
               - unique
               - not_null
