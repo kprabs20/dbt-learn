@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: stripe
+    description: stripe payment details for jaffle_shop
+    database: DEMO_DB
+    tables:
+      - name: payment
+        description: payment associated for each jaffle_shop order
+        loaded_at_field: _BATCHED_AT
+        freshness:
+          warn_after: {count: 50, period: day}
+          error_after: {count: 100, period: day}
+        columns:
+          - name: id
+            description: primary key for payments
+            tests:
+              - unique
+              - not_null  
