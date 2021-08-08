@@ -5,7 +5,8 @@ select
     status,
 
     -- amount is stored in cents, convert it to dollars
-    amount / 100 as amount,
+    --amount / 100 as amount,
+    {{ cents_to_dollars() }} as amount,
     created as created_at
 
 from demo_db.stripe.payment 
