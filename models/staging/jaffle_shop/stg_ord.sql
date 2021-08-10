@@ -7,5 +7,7 @@
  --   from demo_db.jaffle_shop.orders
     from {{ source('jaffle_shop','orders') }}
 
-       {{ events('order_date', 10) }}
+    --where order_date >= dateadd('year', -4, current_timestamp)
+
+       {{ events('order_date', 2) }}
 
