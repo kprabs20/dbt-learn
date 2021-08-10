@@ -7,5 +7,5 @@
  --   from demo_db.jaffle_shop.orders
     from {{ source('jaffle_shop','orders') }}
 
-   {{ events('order_date', 10) }}
+       {{ events('order_date', 10) }}
 
