@@ -9,5 +9,5 @@
 
     --where order_date >= dateadd('year', -4, current_timestamp)
 
-       {{ events('order_date', 2) }}
+    {{ recent_events('order_date', 2) }}
 
