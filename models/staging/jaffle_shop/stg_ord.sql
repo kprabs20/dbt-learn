@@ -8,4 +8,6 @@
     from {{ source('jaffle_shop','orders') }}
 
     {{ recent_events('order_date', 4) }}
+--    group by 1,2,3
+
 
